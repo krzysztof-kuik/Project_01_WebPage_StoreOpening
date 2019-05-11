@@ -126,6 +126,7 @@ section{
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
 section h2:nth-of-type(1){
   font-family: Raleway, sans-serif;
@@ -134,7 +135,25 @@ section h2:nth-of-type(1){
   font-weight: 400;
   width: 432px;
   text-align: center;
+  margin: 130px auto 20px auto;
 
+}
+
+section h2:nth-last-of-type(1){
+  font-family: Raleway, sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  text-align: center;
+  line-height: 42px;
+  margin: 100px auto;
+}
+
+section p{
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+  margin: 0 auto 38px auto;
 }
 
 .stats_list{
@@ -143,14 +162,35 @@ section h2:nth-of-type(1){
   align-items: center;
   justify-content: center;
   flex-basis: 33.33%;
+  margin: 0 auto;
+  padding: 0;
 }
 
 .stats_sublist{
   display: flex;
   flex-direction: column;
   align-items: center;
+  width:116px;
 }
 
+button{
+  background-color: #08A6E4;
+  color: #FFFFFF;
+  box-shadow: 5px 10px 14px rgba(7, 172, 230, 0.16);
+  border-radius: 40px;
+  border: 0 ;
+}
+
+section button{
+  width: 440px;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  padding-top: 22px;
+  padding-bottom: 23px;
+  margin: 0 auto;
+
+}
 
 
 
