@@ -640,3 +640,69 @@ p:after{
 
 
 
+
+.question_form{
+  margin: 179px auto;
+  width: 896px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-basis: 50%;
+}
+
+.question_form div{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.question_form form{
+  display: flex;
+  flex-direction: column;
+
+}
+
+.question_form h2{
+  font-family: Raleway, sans-serif;
+  font-size: 49px;
+  line-height: 57px;
+  text-align: left;
+  margin-bottom: 22px;
+}
+
+.question_form div span:nth-of-type(1){
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 16px;
+  margin-bottom: 42px;
+  width: 100%;
+
+}
+
+
+.contact_info{
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  text-align: left;
+  line-height: 22px;
+  color: #A5A5A5;
+  margin-right: 70px;
+
+}
+
+.question_form span:nth-of-type(2)::before{
+  content: url("../images/Mail Icon.svg");
+  position: relative;
+  left: -5px;
+  top: 7px;
+}
+
+.question_form span:nth-of-type(3)::before{
+  content: url("../images/Phone Icon.svg");
+  position: relative;
+  left: -5px;
+  top: 7px;
+}
