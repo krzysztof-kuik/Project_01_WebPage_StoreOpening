@@ -192,7 +192,7 @@ a:hover{
 
 a:after{
   content: '';
-  width: 0px;
+  width: 0;
   height: 4px;
   background-color: #08A6E4;
   opacity: 0;
@@ -218,7 +218,7 @@ header section h2:nth-of-type(1){
   font-size: 49px;
   line-height: 57px;
   font-weight: 400;
-  width: 432px;
+  width: 434px;
   text-align: center;
   margin: 130px auto 20px auto;
 
@@ -290,7 +290,7 @@ section:nth-of-type(1) button{
   margin: 0 183px;
 }
 .stats ul:nth-of-type(3){
-  max: 145px;
+  /*max: 145px;*/
 }
 
 
@@ -747,40 +747,52 @@ p:after{
   line-height: 17px;
   text-align: left;
   color: #707070;
-
-
   margin-bottom: 55px;
-}
-
-.data_approval input{
-  width: 24px;
-  height: 24px;
   position: relative;
-  top: 8px;
-  margin:0 15px 0 0;
-  color: #FFFFFF;
-  background-color: #FFFFFF;
-
+  padding-left: 34px;
 }
 
+.data_approval:hover .checkmark {
+  background-color: rgba(0, 0, 0, 0.1);
+}
 
-
-.data_approval input::before{
+.checkmark::after {
   content: '';
+  display: block;
+  background-image: url("../images/checkbox.svg");
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+}
+
+.data_approval input:checked +.checkmark::after{
   opacity: 1;
-  box-sizing: border-box;
+}
+
+.data_approval input:focus +.checkmark{
+  border: 2px solid rgba(235, 41, 7, 0.73);
+}
+
+.checkmark{
   width: 24px;
   height: 24px;
-  background-image: url("../images/checkmark.svg");
-  display: inline-block;
-  position: relative;
-  right: 0;
-  bottom: 0;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border: 2px solid #55DFB4;
-  border-radius: 6px;
+  border-radius: 4px;
+  border: 1px solid #95989A;
+  position: absolute;
+  left: 0;
+  bottom: -3px;
 }
+
+.data_approval input {
+  position: absolute;
+  cursor: pointer;
+  height: 24px;
+  width: 24px;
+  left: 0;
+  bottom: -3px;
+  opacity: 0;
+}
+
 
 .send_button input{
   width: 226px;
@@ -805,7 +817,7 @@ footer{
 }
 
 footer div{
-  margin: 18.5px auto 17px 137px;
+  margin: 19px auto 17px 137px;
 }
 
 footer h2{
@@ -815,7 +827,7 @@ footer h2{
   text-align: left;
   line-height: 30px;
   color: rgba(8, 166, 228, 1);
-  margin-bottom: 6.5px;
+  margin-bottom: 7px;
 
 }
 
