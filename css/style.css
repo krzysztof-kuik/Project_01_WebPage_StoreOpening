@@ -796,3 +796,46 @@ p:after{
   position: absolute;
   right: 0;
 }
+
+footer{
+  background-color: rgba(247, 247, 247, 1);
+  box-shadow: 0 -5px 40px rgba(0, 0, 0, 0.16);
+  display: flex;
+
+}
+
+footer div{
+  margin: 18.5px auto 17px 137px;
+}
+
+footer h2{
+  font-family: Raleway, sans-serif;
+  font-size: 26px;
+  font-weight: 300;
+  text-align: left;
+  line-height: 30px;
+  color: rgba(8, 166, 228, 1);
+  margin-bottom: 6.5px;
+
+}
+
+footer span{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 11px;
+  text-align: left;
+  line-height: 15px;
+  color: rgba(165, 165, 165, 1);
+
+
+}
+
+footer img{
+  width: 24px;
+  height: 24px;
+}
+footer img{
+  margin: 33px 25px auto 0;
+}
+footer img:nth-last-of-type(1){
+  margin-right: 146px;
+}
