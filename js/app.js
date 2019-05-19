@@ -40,6 +40,13 @@ document.addEventListener('DOMContentLoaded', function () {
     totalPrice.innerText = `$${totalCharge}`;
   }
 
+
+  productsOption.querySelector('.description').innerText = `0 * $${singleProductPrice}`;
+  productsOption.querySelector('.price').innerText = `$0`;
+  ordersOption.querySelector('.description').innerText = `$0 * $${singleOrderPrice}`;
+  ordersOption.querySelector('.price').innerText = `$0`;
+  totalPrice.innerText = `$0`;
+
   accountancyOption.querySelector('.price').innerText = `$${accountancyPrice}`;
   terminalOption.querySelector('.price').innerText = `$${terminalPrice}`;
   packageOption.querySelector('.description').innerText = options[0].value;
