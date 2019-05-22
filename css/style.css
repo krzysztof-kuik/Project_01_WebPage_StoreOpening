@@ -934,9 +934,7 @@ footer img:nth-last-of-type(1) {
   border: 1px solid #0785bd;
 }
 
-#numberOfProducts:hover, #numberOfOrders:hover, .dropDownLabel:hover{
-  cursor: default;
-}
+
 
 .calculator .calculator_summary {
   display: flex;
@@ -1068,7 +1066,63 @@ footer img:nth-last-of-type(1) {
 
 .select-items div*/
 
+.checkbox_container{
+  font-family: "Open Sans", sans-serif;
+  text-align: left;
+  line-height: 17px;
+  font-size: 12px;
+  color: #707070;
+  margin: 23px auto 27px 0px;
+  padding-left: 34px;
+  position: relative;
 
+}
+
+#firstCheckbox, #secondCheckbox{
+  padding-left: 10px;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #95989A;
+  border-radius: 4px;
+  position: absolute;
+  left: 0;
+  top: -4px;
+}
+
+#firstCheckbox:after, #secondCheckbox:after{
+  content: '';
+  display: block;
+  background-image: url(../images/icons/calculator_checkmark.svg);
+  background-size: cover;
+  width: 16px;
+  height: 18px;
+  opacity: 0;
+  position: absolute;
+  left: 3px;
+  top: 0;
+}
+
+#accountancyCheckboc:hover + #firstCheckbox, #terminalCheckbox:hover +#secondCheckbox{
+  background-color: rgba(0,0,0, 0.1);
+}
+
+#accountancyCheckboc:checked + #firstCheckbox:after, #terminalCheckbox:checked + #secondCheckbox:after{
+  opacity: 1;
+}
+
+#accountancyCheckboc:focus + #firstCheckbox, #terminalCheckbox:focus + #secondCheckbox{
+  border: 2px solid #08A6E4;
+}
+
+#accountancyCheckboc, #terminalCheckbox{
+  position: absolute;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  left: 0;
+  bottom: -3px;
+  opacity: 0;
+}
 
 
 
