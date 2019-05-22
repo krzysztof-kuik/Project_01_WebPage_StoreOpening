@@ -182,7 +182,7 @@ nav li {
   padding: 0 100px;
 }
 
-a {
+nav a {
   font-family: "Open Sans", sans-serif;
   font-weight: bold;
   color: #A5A5A5;
@@ -191,16 +191,16 @@ a {
   position: relative;
 }
 
-a:hover:after {
+nav a:hover:after {
   width: 80px;
   opacity: 1;
 }
 
-a:hover {
+nav a:hover {
   color: black;
 }
 
-a:after {
+nav a:after {
   content: '';
   width: 0;
   height: 4px;
@@ -789,7 +789,7 @@ p:after {
   bottom: -3px;
 }
 
-.data_approval input {
+.data_approval input{
   position: absolute;
   cursor: pointer;
   height: 24px;
@@ -894,7 +894,7 @@ footer img:nth-last-of-type(1) {
   padding: 0 23px;
 }
 
-.calculator form label {
+.calculator form label, .dropDownLabel {
   width: 100%;
 }
 
@@ -902,13 +902,19 @@ footer img:nth-last-of-type(1) {
   margin-bottom: auto;
 }
 
-#numberOfOrders, #numberOfProducts, .calculator select{
+.dropDownContainer{
+  width: 100%;
+  position: relative;
+  margin: 10px 0;
+}
+
+#numberOfOrders, #numberOfProducts, .dropDownLabel{
   width: 100%;
   height: 40px;
   font-family: "Open Sans", sans-serif;
   font-size: 13px;
   line-height: 18px;
-  margin-bottom: 20px;
+  margin: 10px 0;
   border: 1px solid #08A6E4;
   box-shadow: 0 3px 6px rgba(8, 166, 228, 0.16);
   border-radius: 6px;
@@ -918,15 +924,83 @@ footer img:nth-last-of-type(1) {
 }
 
 
-.calculator ul {
+.dropDownLabel{
+  display: block;
+  padding: 11px 20px;
+  margin: 0;
+}
+
+.dropDownLabel:focus{
+  border: 1px solid #0785bd;
+}
+
+#numberOfProducts:hover, #numberOfOrders:hover, .dropDownLabel:hover{
+  cursor: default;
+}
+
+.calculator .calculator_summary {
   display: flex;
   flex-direction: column;
   width: 385px;
   padding: 0 23px;
-
 }
 
-.calculator li{
+.dropDownContainer img{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  transform-origin: center center;
+  transform: rotate(-180deg);
+  transition: transform 500ms ease-out;
+}
+
+/*.dropped{
+  transition: transform 2s;
+}*/
+
+.dropdownList{
+  display: flex;
+  opacity: 0;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  align-items: flex-start;
+  /*padding: 11px 20px;*/
+  background-color: white;
+  border-radius: 6px;
+  border: 1px solid #EB476E;
+  box-shadow: 0 3px 6px rgba(235, 71, 110, 0.16);
+  font-family: "Open Sans", sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  position: absolute;
+  transform: translateY(10px);
+  transition: opacity 700ms ease-out;
+  z-index: -1;
+  /*transition: opacity 500ms;*/
+}
+
+.dropdownList li{
+  width: 100%;
+  padding: 11px 20px;
+  text-align: left;
+}
+
+.dropdownList li:hover{
+  cursor: default;
+  background-color: rgba(210, 210, 210, 0.11);
+}
+
+/*.dropdownList li:nth-of-type(2):before{
+  content: '';
+  display: block;
+  width: 100%;
+  height: ;
+}*/
+
+.calculator .calculator_summary li{
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -959,3 +1033,42 @@ footer img:nth-last-of-type(1) {
   background-color: rgba(8, 166, 228, 1);
   margin: 0 0 auto auto;
 }
+
+
+/*---------------------dropdown---------------------*/
+
+/*
+.custom-select {
+  width: 100%;
+  position: relative;
+}
+
+.custom-select select{
+  display: none;
+}
+
+.select-selected{
+  background-color: grey;
+}
+
+.select-selected:after{
+  position: absolute;
+  content: '';
+  top: 10px;
+  right: 30px;
+  width: 20px;
+  height: 20px;
+  background-image: url("../images/icons/Arrow Down.svg");
+}
+
+.select-selected.select-arrow-active:after{
+
+}
+
+
+.select-items div*/
+
+
+
+
+

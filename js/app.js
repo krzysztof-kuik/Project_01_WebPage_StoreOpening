@@ -5,7 +5,10 @@ document.addEventListener('DOMContentLoaded', function () {
   let terminalCheckbox = document.getElementById('terminalCheckbox');
   let numberOfProducts = document.getElementById('numberOfProducts');
   let numberOfOrders = document.getElementById('numberOfOrders');
-  let packageChoose = document.querySelector('.calculator select');
+  let packageChoose = document.querySelector('.dropDownContainer');
+  console.log(packageChoose);
+  // let dropDownList = document.querySelector('.dropdownList');
+  // console.log(dropDownList);
   let options = [...packageChoose.children];
 
 
@@ -72,27 +75,64 @@ document.addEventListener('DOMContentLoaded', function () {
     totalChargeUpdate()
   });
 
+  let dropDownLabel = document.querySelector('.dropDownLabel');
+  console.log(dropDownLabel);
 
-  packageChoose.addEventListener('change', function () {
 
-    let options = [...packageChoose.children];
-    for (let i = 0; i < options.length; i++) {
-      if (options[i].selected) {
-        packageOption.querySelector('.description').innerText = options[i].value;
-        if (options[i].value === 'podstawowy') {
-          packageOption.querySelector('.price').innerText = `$${basicPackagePrice}`;
-          packageCharge = basicPackagePrice;
-        } else if (options[i].value === 'profesjonalny') {
-          packageOption.querySelector('.price').innerText = `$${professionalPackagePrice}`;
-          packageCharge = professionalPackagePrice;
-        } else {
-          packageOption.querySelector('.price').innerText = `$${premiumPackagePrice}`;
-          packageCharge = premiumPackagePrice;
-        }
-      }
+
+
+
+
+  dropDownLabel.addEventListener('click', function () {
+    let dropDownList = document.querySelector('.dropdownList');
+    let arrow = packageChoose.querySelector('img');
+    console.log(arrow);
+    if (!arrow.classList.contains('dropped')) {
+      arrow.style.transform = 'rotate(0)';
+      arrow.classList.toggle('dropped');
+      // dropDownList.style.display = 'flex';
+      dropDownList.style.opacity = '1';
+      dropDownList.style.zIndex = '1';
+
+      console.log('1');
+
+    } else {
+      arrow.style.transform = 'rotate(-180deg)';
+      arrow.classList.toggle('dropped');
+      // dropDownList.style.display = 'none';
+      dropDownList.style.opacity = '0';
+      dropDownList.style.zIndex= '-1';
+
+
+
+      console.log('2');
     }
-    totalChargeUpdate();
   });
+  
+
+
+
+  //
+  // packageChoose.addEventListener('change', function () {
+  //
+  //   let options = [...packageChoose.children];
+  //   for (let i = 0; i < options.length; i++) {
+  //     if (options[i].selected) {
+  //       packageOption.querySelector('.description').innerText = options[i].value;
+  //       if (options[i].value === 'podstawowy') {
+  //         packageOption.querySelector('.price').innerText = `$${basicPackagePrice}`;
+  //         packageCharge = basicPackagePrice;
+  //       } else if (options[i].value === 'profesjonalny') {
+  //         packageOption.querySelector('.price').innerText = `$${professionalPackagePrice}`;
+  //         packageCharge = professionalPackagePrice;
+  //       } else {
+  //         packageOption.querySelector('.price').innerText = `$${premiumPackagePrice}`;
+  //         packageCharge = premiumPackagePrice;
+  //       }
+  //     }
+  //   }
+  //   totalChargeUpdate();
+  // });
 
 
   accountancyCheckbox.addEventListener('click', function () {
@@ -115,6 +155,5 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     totalChargeUpdate();
   });
-})
-;
+});
 

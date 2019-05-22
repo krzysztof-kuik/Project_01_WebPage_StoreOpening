@@ -133,77 +133,95 @@
 
   </section>
 
-<!---------------------------------CALCULATOR--------------------------->
+  <!---------------------------------CALCULATOR--------------------------->
 
   <section class="main_width calculator">
 
     <h2>Oblicz ile zapłacisz</h2>
     <div>
 
-    <form>
+      <form>
 
-      <label>
-        <input id="numberOfProducts" type="number" placeholder="ilość produktów" min="0" max="100">
-      </label>
-      <label>
-        <input id="numberOfOrders" type="number" placeholder="Szacowana ilość zamówień w miesiącu" min="0" max="100">
-      </label>
-      <label>
-        <select>
-          <option selected value="podstawowy">Podstawowy</option>
-          <option value="profesjonalny">Profesjonalny</option>
-          <option value="premium">Premium</option>
-        </select>
-      </label>
-      <label>
-        <input id="accountancyCheckboc" type="checkbox" value="accountancy" >
-        Obsługa księgowa
-      </label>
-      <label>
-        <input id="terminalCheckbox" type="checkbox" value="terminal renting">
-        Wynajem terminala płatniczego
-      </label>
+        <label>
+          <input id="numberOfProducts" type="number" placeholder="ilość produktów" min="0" max="100">
+        </label>
+        <label>
+          <input id="numberOfOrders" type="number" placeholder="Szacowana ilość zamówień w miesiącu" min="0" max="100">
+        </label>
 
-    </form>
 
-    <ul>
-      <li id="products">
-        <span>Produkty</span>
-        <span class="description"></span>
-        <span class="price"></span>
-      </li>
+        <!--      <label>
+                <div class="custom-select">
+                <select>
+                  <option>Wybierz Pakiet</option>
+                  <option selected value="podstawowy">Podstawowy</option>
+                  <option value="profesjonalny">Profesjonalny</option>
+                  <option value="premium">Premium</option>
+                </select>
+                </div>
+              </label>-->
 
-      <li id="orders">
-        <span>Zamówienia</span>
-        <span class="description"></span>
-        <span class="price"></span>
-      </li>
 
-      <li id="package">
-        <span>Pakiet</span>
-        <span class="description"></span>
-        <span class="price"></span>
-      </li>
+          <div class="dropDownContainer">
+            <span class="dropDownLabel" tabindex="0">Wybierz pakiet</span><img src="images/icons/Arrow%20Down.svg">
+            <ul class="dropdownList">
+              <li>Podstawowy</li>
+              <li>Profesjonalny</li>
+              <li>Premium</li>
+            </ul>
+          </div>
 
-      <li id="accountancy" class="invisible">
-        <span>Księgowość</span>
-        <span class="price"></span>
-      </li>
-      <li id="terminal" class="invisible">
-        <span>Terminal</span>
-        <span class="price"></span>
-      </li>
-      <li id="total">
-        <span>Suma</span>
-        <span class="price"></span>
-      </li>
 
-    </ul>
+
+        <label>
+          <input id="accountancyCheckboc" type="checkbox" value="accountancy">
+          Obsługa księgowa
+        </label>
+        <label>
+          <input id="terminalCheckbox" type="checkbox" value="terminal renting">
+          Wynajem terminala płatniczego
+        </label>
+
+      </form>
+
+      <ul class="calculator_summary">
+        <li id="products">
+          <span>Produkty</span>
+          <span class="description"></span>
+          <span class="price"></span>
+        </li>
+
+        <li id="orders">
+          <span>Zamówienia</span>
+          <span class="description"></span>
+          <span class="price"></span>
+        </li>
+
+        <li id="package">
+          <span>Pakiet</span>
+          <span class="description"></span>
+          <span class="price"></span>
+        </li>
+
+        <li id="accountancy" class="invisible">
+          <span>Księgowość</span>
+          <span class="price"></span>
+        </li>
+        <li id="terminal" class="invisible">
+          <span>Terminal</span>
+          <span class="price"></span>
+        </li>
+        <li id="total">
+          <span>Suma</span>
+          <span class="price"></span>
+        </li>
+
+      </ul>`
     </div>
   </section>
 
 
-<!-----------------------------QUESTION FORM----------------------------------->
+  <!-----------------------------QUESTION FORM----------------------------------->
 
   <section class="question_form">
     <div>
@@ -244,4 +262,5 @@
 </footer>
 </body>
 <script src="js/app.js" type="text/javascript"></script>
+<script
 </html>
