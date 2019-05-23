@@ -6,19 +6,11 @@ document.addEventListener('DOMContentLoaded', function () {
   let numberOfProducts = document.getElementById('numberOfProducts');
   let numberOfOrders = document.getElementById('numberOfOrders');
   let packageChoose = document.querySelector('.dropDownContainer');
-  console.log(packageChoose);
-  // let dropDownList = document.querySelector('.dropdownList');
-  // console.log(dropDownList);
   let options = [...packageChoose.children];
-
-  //-----------------------
-
 
   let dropDownList = document.querySelector('.dropdownList');
   let packages = [...dropDownList.children];
-  console.log(packages);
   let arrow = packageChoose.querySelector('img');
-
 
   let accountancyPrice = 35;
   let terminalPrice = 5;
@@ -36,10 +28,14 @@ document.addEventListener('DOMContentLoaded', function () {
   let total = document.getElementById('total');
   let totalPrice = total.querySelector('.price');
 
+  let dropDownLabel = document.querySelector('.dropDownLabel');
+  let arrowIcon = document.querySelector('.dropDownContainer img');
+  let dropDownListInitiators = [dropDownLabel, arrowIcon];
+
   let productsCharge = 0;
   let ordersCharge = 0;
   let packageCharge = 0;
-  let chosenPackage = 'podstawowy';
+  let chosenPackage = 'Podstawowy';
 
   function totalChargeUpdate() {
     let totalCharge = productsCharge + ordersCharge + packageCharge;
@@ -52,169 +48,98 @@ document.addEventListener('DOMContentLoaded', function () {
     totalPrice.innerText = `$${totalCharge}`;
   }
 
+  productsOption.querySelector('.description').innerText = `0 * $${singleProductPrice}`;
+  productsOption.querySelector('.price').innerText = `$0`;
+  ordersOption.querySelector('.description').innerText = `$0 * $${singleOrderPrice}`;
+  ordersOption.querySelector('.price').innerText = `$0`;
+  totalPrice.innerText = `$0`;
+  accountancyOption.querySelector('.price').innerText = `$${accountancyPrice}`;
+
+  terminalOption.querySelector('.price').innerText = `$${terminalPrice}`;
+  packageOption.querySelector('.description').innerText = chosenPackage;
+  packageOption.querySelector('.price').innerText = `$${basicPackagePrice}`;
+
+
+  numberOfProducts.addEventListener('input', function () {
+
+    productsOption.querySelector('.description').innerText = `${numberOfProducts.value} * $${singleProductPrice}`;
+    productsOption.querySelector('.price').innerText = `$${numberOfProducts.value * singleProductPrice}`;
+    productsCharge = numberOfProducts.value * singleProductPrice;
+    totalChargeUpdate();
+  });
+
+
+  numberOfOrders.addEventListener('input', function () {
+
+    ordersOption.querySelector('.description').innerText = `${numberOfOrders.value} * $${singleOrderPrice}`;
+    ordersOption.querySelector('.price').innerText = `$${numberOfOrders.value * singleOrderPrice}`;
+
+    ordersCharge = numberOfOrders.value * singleOrderPrice;
+    totalChargeUpdate()
+  });
+
+
+  dropDownListInitiators.forEach(function (element) {
+    element.addEventListener('click', function () {
+
+      console.log(arrow);
+      if (!arrow.classList.contains('dropped')) {
+        arrow.style.transform = 'rotate(0)';
+        arrow.classList.toggle('dropped');
+        dropDownList.style.opacity = '1';
+        dropDownList.style.zIndex = '1';
+
+      } else {
+        arrow.style.transform = 'rotate(-180deg)';
+        arrow.classList.toggle('dropped');
+        dropDownList.style.opacity = '0';
+        dropDownList.style.zIndex = '-1';
+      }
+    })
+  });
+
 
   packages.forEach(function (element) {
     element.addEventListener('click', function () {
-      chosenPackage = element.innerText.toLowerCase();
+      chosenPackage = element.innerText;
       console.log(chosenPackage);
-      if (chosenPackage === 'podstawowy'){
+      if (chosenPackage.toLowerCase() === 'podstawowy') {
         packageCharge = basicPackagePrice;
-      } else if(chosenPackage === 'profesjonalny'){
+      } else if (chosenPackage.toLowerCase() === 'profesjonalny') {
         packageCharge = professionalPackagePrice;
-      }else {
+      } else {
         packageCharge = premiumPackagePrice;
       }
       packageOption.querySelector('.description').innerText = element.innerText;
       packageOption.querySelector('.price').innerText = `$${packageCharge}`;
-
-      totalChargeUpdate()
+      totalChargeUpdate();
       arrow.style.transform = 'rotate(-180deg)';
       arrow.classList.toggle('dropped');
-      // dropDownList.style.display = 'none';
       dropDownList.style.opacity = '0';
       dropDownList.style.zIndex = '-1';
+    })
+  });
 
 
-  })
-});
+  accountancyCheckbox.addEventListener('click', function () {
 
-
-productsOption.querySelector('.description').innerText = `0 * $${singleProductPrice}`;
-productsOption.querySelector('.price').innerText = `$0`;
-ordersOption.querySelector('.description').innerText = `$0 * $${singleOrderPrice}`;
-ordersOption.querySelector('.price').innerText = `$0`;
-totalPrice.innerText = `$0`;
-
-accountancyOption.querySelector('.price').innerText = `$${accountancyPrice}`;
-terminalOption.querySelector('.price').innerText = `$${terminalPrice}`;
-packageOption.querySelector('.description').innerText = options[0].value;
-packageOption.querySelector('.price').innerText = `$${basicPackagePrice}`;
-
-
-numberOfProducts.addEventListener('input', function () {
-
-  productsOption.querySelector('.description').innerText = `${numberOfProducts.value} * $${singleProductPrice}`;
-  productsOption.querySelector('.price').innerText = `$${numberOfProducts.value * singleProductPrice}`;
-
-  productsCharge = numberOfProducts.value * singleProductPrice;
-  totalChargeUpdate();
-});
-
-
-numberOfOrders.addEventListener('input', function () {
-
-  ordersOption.querySelector('.description').innerText = `${numberOfOrders.value} * $${singleOrderPrice}`;
-  ordersOption.querySelector('.price').innerText = `$${numberOfOrders.value * singleOrderPrice}`;
-
-  ordersCharge = numberOfOrders.value * singleOrderPrice;
-  totalChargeUpdate()
-});
-
-let dropDownLabel = document.querySelector('.dropDownLabel');
-console.log(dropDownLabel);
-
-let arrowIcon = document.querySelector('.dropDownContainer img');
-console.log(arrowIcon);
-
-let dropDownListInitiators = [dropDownLabel, arrowIcon];
-
-
-dropDownListInitiators.forEach(function (element) {
-  element.addEventListener('click', function () {
-
-    console.log(arrow);
-    if (!arrow.classList.contains('dropped')) {
-      arrow.style.transform = 'rotate(0)';
-      arrow.classList.toggle('dropped');
-      // dropDownList.style.display = 'flex';
-      dropDownList.style.opacity = '1';
-      dropDownList.style.zIndex = '1';
-
-      console.log('1');
-
+    if (accountancyCheckbox.checked === true) {
+      accountancyOption.classList.toggle('invisible');
     } else {
-      arrow.style.transform = 'rotate(-180deg)';
-      arrow.classList.toggle('dropped');
-      // dropDownList.style.display = 'none';
-      dropDownList.style.opacity = '0';
-      dropDownList.style.zIndex = '-1';
+      accountancyOption.classList.toggle('invisible');
     }
-  })
+    totalChargeUpdate();
+  });
+
+
+  terminalCheckbox.addEventListener('click', function () {
+
+    if (accountancyCheckbox.checked === true) {
+      terminalOption.classList.toggle('invisible');
+    } else {
+      terminalOption.classList.toggle('invisible');
+    }
+    totalChargeUpdate();
+  });
 });
-
-
-//
-// dropDownLabel.addEventListener('click', function () {
-//   let dropDownList = document.querySelector('.dropdownList');
-//   let arrow = packageChoose.querySelector('img');
-//   console.log(arrow);
-//   if (!arrow.classList.contains('dropped')) {
-//     arrow.style.transform = 'rotate(0)';
-//     arrow.classList.toggle('dropped');
-//     // dropDownList.style.display = 'flex';
-//     dropDownList.style.opacity = '1';
-//     dropDownList.style.zIndex = '1';
-//
-//     console.log('1');
-//
-//   } else {
-//     arrow.style.transform = 'rotate(-180deg)';
-//     arrow.classList.toggle('dropped');
-//     // dropDownList.style.display = 'none';
-//     dropDownList.style.opacity = '0';
-//     dropDownList.style.zIndex= '-1';
-//
-
-//
-//   console.log('2');
-// }
-// })
-// ;
-
-
-//
-// packageChoose.addEventListener('change', function () {
-//
-//   let options = [...packageChoose.children];
-//   for (let i = 0; i < options.length; i++) {
-//     if (options[i].selected) {
-//       packageOption.querySelector('.description').innerText = options[i].value;
-//       if (options[i].value === 'podstawowy') {
-//         packageOption.querySelector('.price').innerText = `$${basicPackagePrice}`;
-//         packageCharge = basicPackagePrice;
-//       } else if (options[i].value === 'profesjonalny') {
-//         packageOption.querySelector('.price').innerText = `$${professionalPackagePrice}`;
-//         packageCharge = professionalPackagePrice;
-//       } else {
-//         packageOption.querySelector('.price').innerText = `$${premiumPackagePrice}`;
-//         packageCharge = premiumPackagePrice;
-//       }
-//     }
-//   }
-//   totalChargeUpdate();
-// });
-
-
-accountancyCheckbox.addEventListener('click', function () {
-
-  if (accountancyCheckbox.checked === true) {
-    accountancyOption.classList.toggle('invisible');
-  } else {
-    accountancyOption.classList.toggle('invisible');
-  }
-  totalChargeUpdate();
-});
-
-
-terminalCheckbox.addEventListener('click', function () {
-
-  if (accountancyCheckbox.checked === true) {
-    terminalOption.classList.toggle('invisible');
-  } else {
-    terminalOption.classList.toggle('invisible');
-  }
-  totalChargeUpdate();
-});
-})
-;
 
