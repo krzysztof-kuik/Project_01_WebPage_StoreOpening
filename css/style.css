@@ -158,10 +158,11 @@ nav {
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  padding: 0 86px 0 86px;
 }
 
 h1 {
-  padding-left: 136px;
+  padding-left: 50px;
   padding-top: 16px;
   padding-bottom: 17px;
   font-size: 32px;
@@ -179,7 +180,9 @@ li {
 }
 
 nav li {
-  padding: 0 100px;
+  /*padding: 0 100px;*/
+  margin: 0 50px;
+  position: relative;
 }
 
 nav a {
@@ -188,19 +191,15 @@ nav a {
   color: #A5A5A5;
   text-decoration: none;
   padding: 15px 0;
-  position: relative;
+
 }
 
-nav a:hover:after {
-  width: 80px;
-  opacity: 1;
-}
 
 nav a:hover {
   color: black;
 }
 
-nav a:after {
+nav li:after {
   content: '';
   width: 0;
   height: 4px;
@@ -210,6 +209,11 @@ nav a:after {
   bottom: -10px;
   left: 0;
   transition: width 1s;
+}
+
+nav li:hover:after {
+  width: 100%;
+  opacity: 1;
 }
 
 header div {
@@ -278,7 +282,7 @@ section:nth-of-type(1) button {
   align-items: flex-start;
   width: calc(544px + 163px + 116px);
   flex-basis: 33.33%;
-  margin: 0 auto;
+  margin: 0 auto 121px auto;
 
 }
 
@@ -819,6 +823,8 @@ footer {
   background-color: rgba(247, 247, 247, 1);
   box-shadow: 0 -5px 40px rgba(0, 0, 0, 0.16);
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 
 }
 
@@ -847,16 +853,14 @@ footer span {
 
 }
 
-footer img {
+footer a img {
   width: 24px;
   height: 24px;
+  margin: 0 10px auto 10px;
 }
 
-footer img {
-  margin: 33px 25px auto 0;
-}
 
-footer img:nth-last-of-type(1) {
+footer a:nth-last-of-type(1) {
   margin-right: 146px;
 }
 
@@ -934,6 +938,10 @@ footer img:nth-last-of-type(1) {
   border: 1px solid #0785bd;
 }
 
+.dropdownList li:focus{
+  border: 1px solid #EB476E;
+  outline: none;
+}
 
 
 .calculator .calculator_summary {
@@ -953,10 +961,6 @@ footer img:nth-last-of-type(1) {
   transform: rotate(-180deg);
   transition: transform 500ms ease-out;
 }
-
-/*.dropped{
-  transition: transform 2s;
-}*/
 
 .dropdownList{
   display: flex;
@@ -991,13 +995,6 @@ footer img:nth-last-of-type(1) {
   background-color: rgba(210, 210, 210, 0.11);
 }
 
-/*.dropdownList li:nth-of-type(2):before{
-  content: '';
-  display: block;
-  width: 100%;
-  height: ;
-}*/
-
 .calculator .calculator_summary li{
   width: 100%;
   display: flex;
@@ -1031,40 +1028,6 @@ footer img:nth-last-of-type(1) {
   background-color: rgba(8, 166, 228, 1);
   margin: 0 0 auto auto;
 }
-
-
-/*---------------------dropdown---------------------*/
-
-/*
-.custom-select {
-  width: 100%;
-  position: relative;
-}
-
-.custom-select select{
-  display: none;
-}
-
-.select-selected{
-  background-color: grey;
-}
-
-.select-selected:after{
-  position: absolute;
-  content: '';
-  top: 10px;
-  right: 30px;
-  width: 20px;
-  height: 20px;
-  background-image: url("../images/icons/Arrow Down.svg");
-}
-
-.select-selected.select-arrow-active:after{
-
-}
-
-
-.select-items div*/
 
 .checkbox_container{
   font-family: "Open Sans", sans-serif;

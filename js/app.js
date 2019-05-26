@@ -82,7 +82,6 @@ document.addEventListener('DOMContentLoaded', function () {
   dropDownListInitiators.forEach(function (element) {
     element.addEventListener('click', function () {
 
-      console.log(arrow);
       if (!arrow.classList.contains('dropped')) {
         arrow.style.transform = 'rotate(0)';
         arrow.classList.toggle('dropped');
@@ -102,7 +101,6 @@ document.addEventListener('DOMContentLoaded', function () {
   packages.forEach(function (element) {
     element.addEventListener('click', function () {
       chosenPackage = element.innerText;
-      console.log(chosenPackage);
       if (chosenPackage.toLowerCase() === 'podstawowy') {
         packageCharge = basicPackagePrice;
       } else if (chosenPackage.toLowerCase() === 'profesjonalny') {
@@ -117,6 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
       arrow.classList.toggle('dropped');
       dropDownList.style.opacity = '0';
       dropDownList.style.zIndex = '-1';
+      dropDownLabel.innerText = `Wybrany pakiet: ${chosenPackage}`;
     })
   });
 
