@@ -267,7 +267,7 @@ section:nth-of-type(1) button{
   align-items: flex-start;
   width: calc(544px + 163px + 116px);
   flex-basis: 33.33%;
-  margin: 0 auto;
+  margin: 0 auto 121px auto;
 
 }
 
